@@ -1,0 +1,16 @@
+Feature: Player wants to cancel a feedback
+	Player is already logged in
+
+Scenario: Player wants to cancel his feedback
+	Given I am into Feedback screen
+	And I have completed some forms
+	When I click to exit
+	Then I receive an alert that I have some completed messages
+
+
+Scenario : Player wants to cancel an already send feedback
+	Given I have already sent the feedback
+	And I'm into the main screen
+	When I click feedback button
+	And I click the cancel feedback option
+	Then I should receive a confirmation that I sent a cancel feedback request
