@@ -1,0 +1,33 @@
+Feature: Upgrade player account
+	Player must have an account and must be logged in
+
+Scenario: Player clicks to uprade account
+	Given I am logged in on the game
+	And I am on the MainScreen
+	And I click the upgrade account button
+	And I'm shown the UpgradeAccountActivity 
+	And I have inserted the credit card details
+	When I've confirmed the payment
+	Then I should be granted with a premium account
+
+
+Scenario: Player clicks to upgrade account and leaves the transaction
+	Given I am logged in on the game
+		And I am on the MainScreen
+	And I click the upgrade account button
+	And I'm shown the UpgradeAccountActivity 
+	And I have inserted the credit card details
+	When I leave the transaction
+	Then I should go back and receive a message
+
+
+Scenario: Player clicks to upgrade account and server fails
+	Given I am logged in on the game
+	And I am on the MainScreen
+	And I click the upgrade account button
+	And I'm shown the UpgradeAccountActivity 
+	And I have inserted the credit card details
+	When I've confirmed the payment
+	Then I should be granted with a premium account
+	But the server fails the transaction
+	Then I should receive a fail message
