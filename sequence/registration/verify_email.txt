@@ -1,0 +1,21 @@
+Feature: Verify email on registration
+    The user must be in the registration screen to be able to check the email address
+
+
+Scenario: User sends email address for verification
+	Given that I have completed all the forms
+	And I checked terms and conditions
+	And I completed the email address
+	And I accessed the async process to communicate with the server
+	Then I send a request with the email
+	And I receive the confirmation
+
+
+Scenario: User sends email address for verification without correct data completing
+	Given that I do not have completed all the forms
+	And I didn't checked all terms and conditions
+	And I didn't completed the email address
+	And if the email address is completed it is not valid
+	Then I send a request with the email
+	But I receive an error message
+	And the email is not verified

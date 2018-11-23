@@ -1,0 +1,16 @@
+Feature: Upload avatar
+The user should be in the registering step and grant access to accessing the local files
+
+Scenario: Pick image from gallery
+	Given that I am registering and I have granted access to file reading
+	When I click the upload button
+	And I select a picture from gallery
+	Then the selected picture is uploaded
+
+Scenario: Pick image without grant
+	Given that I am logged in
+	When I click the upload button
+	And I select a picture from gallery
+	Then I receive null because the permission is not grant
+	And the picture is not uploaded
+
