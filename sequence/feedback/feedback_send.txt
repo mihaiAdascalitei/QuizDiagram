@@ -1,0 +1,19 @@
+Feature: Player wants to send a feedback
+	Player is logged in
+
+Scenario: Player wants to send a feedback
+	Given I am logged in
+	And I entered the feedback screen
+	And I completed all the forms
+	When I click send feedback
+	Then I should receive feedback confirmation
+
+
+Scenario: Player wants to send a feedback but the server fails
+	Given I am logged in
+	And I entered the feedback screen
+	And I completed all the forms
+	When I click send feedback
+	Then I should receive feedback confirmation
+	But I receive a fail http message
+	Then I'm displayed an error message

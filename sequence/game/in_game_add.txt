@@ -1,0 +1,16 @@
+Feature: display ad in game
+  The player already plays
+
+Scenario: The player loses the game but still wants to continue
+	Given I am already playing
+	And I run out of lives
+	When I accept to see the ad
+	Then I should receive extra lives
+
+Scenario: The player accepts to watch the ads but he still cannot continue
+	Given I am already playing
+	And I run out of lives
+	When I accept to see the ad
+	Then I should receive extra lives
+	But I do not receive 
+	And I'm kicked out of the game

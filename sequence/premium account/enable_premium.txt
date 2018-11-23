@@ -1,0 +1,21 @@
+Feature: Enable premium account
+  The player paid for the premium account
+
+Scenario: The player wants to enable the purchased account
+	Given I am logged in 
+	And I have already purchased the premium account
+	And I received the success message
+	When I navigate to ProfileActivity
+	Then I should already see the changes
+
+
+
+Scenario : The player didn't receive the premium account yet
+	Given I am logged in
+	And I have already purchased the premium account
+	And I received the success message
+	When I navigate to ProfileActivity
+	Then I should already see the changes 
+	But I see no changes 
+	When navigating to ProfileActivity
+	Then I should wait or contact the support
