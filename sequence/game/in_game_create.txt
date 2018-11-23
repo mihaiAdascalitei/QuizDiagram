@@ -1,0 +1,21 @@
+Feature: Player wants to start a game
+	The player is logged in and wants to play
+
+Scenario : The player wants to play a game
+	Given I am logged into the game
+	When I click the singleplayer mode
+	Then I should see the QuizActivity
+	But I quit the singleplayer mode
+	When I click the multiplayer mode
+	Then I should see the Lobby
+	And I click the room
+	When I click to play
+	Then I should see the QuizActivity with the selected players
+
+
+Scenario : The player wants to play a multiplayer but there's no enough players
+	Given I am logged into the game
+	When I press the multiplayer mode
+	Then I should see the Lobby screen
+	But There's not enough players to start a game or a room
+	And I should wait for players or play a singleplayer
